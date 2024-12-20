@@ -13,7 +13,7 @@ def sign_up_by_django(request):
     # uname = Buyer.objects.name
     Buyers = Buyer.objects.all()  # Получаем всех покупателей из базы данных
     info = {}
-    # form = UserRegister()
+    form = UserRegister()
 
     if request.method == 'POST':
         form = UserRegister(request.POST)
@@ -29,6 +29,7 @@ def sign_up_by_django(request):
                 info['error'] = 'Вы должны быть старше 18'
             elif username in Buyers:
                 info['error'] = 'Пользователь уже существует'
+
 
             else:
                 # Проверяем, существует ли пользователь с таким именем
